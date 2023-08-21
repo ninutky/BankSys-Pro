@@ -9,6 +9,8 @@ import java.util.List;
 public interface CustomerMapper {
     public void insert(CustomerDto dto);
     public List<CustomerDto> list();
+
+    public List<CustomerDto> list2(String id);
     public void delete(CustomerDto dto);
     public void update(CustomerDto dto);
 }

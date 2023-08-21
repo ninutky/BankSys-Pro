@@ -23,6 +23,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public List<CustomerDto> list2(String id) {
+        return mapper.list2(id);
+    }
+
+    @Override
     public void delete(CustomerDto dto) {
         mapper.delete(dto);
     }
