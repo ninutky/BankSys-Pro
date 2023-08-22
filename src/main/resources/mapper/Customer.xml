@@ -5,18 +5,24 @@
 
 <mapper namespace="kr.hs.study.BankSysPro.mapper.CustomerMapper">
     <insert id="insert" parameterType="kr.hs.study.BankSysPro.dto.CustomerDto">
-        insert into customers(id, password, name) values(#{id}, #{password}, #{name})
+        INSERT INTO customers(c_id, id, password, name)
+        VALUES(banksys_seq.NEXTVAL, #{id}, #{password}, #{name})
     </insert>
     <select id="list" resultType="kr.hs.study.BankSysPro.dto.CustomerDto">
-        select * from customers order by id
+        SELECT * FROM customers
+        ORDER BY c_id
     </select>
     <select id="list2" resultType="kr.hs.study.BankSysPro.dto.CustomerDto">
-        select * from customers where id = #{id}
+        SELECT * FROM customers
+        WHERE c_id = #{c_id}
     </select>
     <delete id="delete" parameterType="kr.hs.study.BankSysPro.dto.CustomerDto">
-        delete from customers where id = #{id}
+        DELETE FROM customers
+        WHERE c_id = #{c_id}
     </delete>
     <update id="update" parameterType="kr.hs.study.BankSysPro.dto.CustomerDto">
-        update customers set password = #{password}, name = #{name} where id = #{id}
+        UPDATE customers
+        SET id = #{id}, password = #{password}, name = #{name}
+        WHERE c_id = #{c_id}
     </update>
 </mapper>

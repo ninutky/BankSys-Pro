@@ -23,7 +23,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDto> list2(String id) {
+    public List<CustomerDto> list2(int id) {
         return mapper.list2(id);
     }
 

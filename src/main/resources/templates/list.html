@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>고객 정보 리스트</title>
 </head>
 <body>
 <h1>고객 정보 리스트</h1>
 <table border>
   <tr>
-    <td>name</td>
-    <td>id</td>
-    <td>password</td>
-    <td>수정 및 삭제</td>
+    <td>이름</td>
+    <td>아이디</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr th:each="user:${list}">
     <td>
@@ -21,14 +21,13 @@
       <span th:text="${user.id}"></span>
     </td>
     <td>
-      <span th:text="${user.password}"></span>
+      <a th:href="@{'information/'+${user.c_id}}">정보보기</a>
     </td>
     <td>
-      <a th:href="@{'update/'+${user.id}}">수정</a>
-      <a th:href="@{'delete/'+${user.id}}">삭제</a>
+      <a th:href="@{'update/'+${user.c_id}}">수정</a>
     </td>
   </tr>
 </table>
-<a th:href="@{write}">사용자 등록</a>
+<a th:href="@{sign_up}">사용자등록</a>
 </body>
 </html>

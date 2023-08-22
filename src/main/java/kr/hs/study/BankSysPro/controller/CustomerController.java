@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -38,9 +39,9 @@ public class CustomerController {
         return "list";
     }
 
-    @GetMapping("/update/{id}")
-    public String update(CustomerDto dto, Model model) {
-        List<CustomerDto> list = service.list2(dto.getId());
+    @GetMapping("/update/{c_id}")
+    public String update(@PathVariable("c_id") int cId, Model model) {
+        List<CustomerDto> list = service.list2(cId);
         model.addAttribute("list", list);
         return "update_form";
     }
