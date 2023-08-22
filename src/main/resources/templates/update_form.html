@@ -6,6 +6,7 @@
 </head>
 <body>
 <form method="post" action="/update" th:each="user:${list}">
+  <input type="hidden" name="c_id" th:value="${user.c_id}">
   이름 <input type="text" name="name" th:value="*{user.name}"></br>
   아이디 <input type="text" name="id" th:value="*{user.id}"></br>
   비밀번호 <input type="text" name="password" th:value="*{user.password}"></br>
