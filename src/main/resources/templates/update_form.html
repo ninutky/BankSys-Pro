@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>고객 정보 수정</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>계좌 등록</title>
+  <!-- 부트스트랩 링크 추가 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-<form method="post" action="/update" th:each="user:${list}">
-  <input type="hidden" name="c_id" th:value="${user.c_id}">
-  이름 <input type="text" name="name" th:value="*{user.name}"></br>
-  아이디 <input type="text" name="id" th:value="*{user.id}"></br>
-  비밀번호 <input type="text" name="password" th:value="*{user.password}"></br>
-  <button type="submit">완료</button>
-</form>
+<div class="container mt-4">
+  <h1>계좌 수정</h1>
+  <form method="post" action="/update" th:each="account:${list}">
+    <div class="form-group">
+      <label for="bankName">은행</label>
+      <input type="text" class="form-control" name="bank_name" th:value="${account.bank_name}">
+    </div>
+    <div class="form-group">
+      <label for="accountNumber">계좌번호</label>
+      <input type="text" class="form-control" name="account_number" th:value="${account.account_number}">
+    </div>
+    <div class="form-group">
+      <label for="balance">잔액</label>
+      <input type="number" class="form-control" name="balance" th:value="${account.balance}">
+    </div>
+    <div class="form-group">
+      <label for="openingDate">개설 일자</label>
+      <input type="date" class="form-control" name="opening_date" th:value="${#dates.format(account.opening_date, 'yyyy-MM-dd')}">
+    </div>
+    </br>
+    <button type="submit" class="btn btn-primary">완료</button>
+  </form>
+</div>
+
+<!-- 부트스트랩 스크립트 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

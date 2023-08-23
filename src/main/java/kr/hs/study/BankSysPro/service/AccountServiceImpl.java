@@ -1,39 +1,39 @@
 package kr.hs.study.BankSysPro.service;
 
-import kr.hs.study.BankSysPro.dto.CustomerDto;
-import kr.hs.study.BankSysPro.mapper.CustomerMapper;
+import kr.hs.study.BankSysPro.dto.AccountDto;
+import kr.hs.study.BankSysPro.mapper.AccountMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class AccountServiceImpl implements AccountService {
     @Autowired
-    private CustomerMapper mapper;
+    private AccountMapper mapper;
 
     @Override
-    public void insert(CustomerDto dto) {
+    public void insert(AccountDto dto) {
         mapper.insert(dto);
     }
 
     @Override
-    public List<CustomerDto> list() {
+    public List<AccountDto> list() {
         return mapper.list();
     }
 
     @Override
-    public List<CustomerDto> list2(int id) {
+    public List<AccountDto> list2(String id) {
         return mapper.list2(id);
     }
 
     @Override
-    public void delete(CustomerDto dto) {
+    public void delete(AccountDto dto) {
         mapper.delete(dto);
     }
 
     @Override
-    public void update(CustomerDto dto) {
+    public void update(AccountDto dto) {
         mapper.update(dto);
     }
 }

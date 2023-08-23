@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.hs.study.BankSysPro.mapper.AccountMapper">
+    <insert id="insert" parameterType="kr.hs.study.BankSysPro.dto.AccountDto">
+        INSERT INTO accounts(account_number, balance, opening_date, bank_name)
+        VALUES(#{account_number}, #{balance}, #{opening_date}, #{bank_name})
+    </insert>
+    <select id="list" resultType="kr.hs.study.BankSysPro.dto.AccountDto">
+        SELECT * FROM accounts
+        ORDER BY account_number
+    </select>
+    <select id="list2" resultType="kr.hs.study.BankSysPro.dto.AccountDto">
+        SELECT * FROM accounts
+        WHERE account_number = #{account_number}
+    </select>
+    <delete id="delete" parameterType="kr.hs.study.BankSysPro.dto.AccountDto">
+        DELETE FROM accounts
+        WHERE account_number = #{account_number}
+    </delete>
+    <update id="update" parameterType="kr.hs.study.BankSysPro.dto.AccountDto">
+        UPDATE accounts
+        SET account_number = #{account_number}, balance = #{balance}, opening_date = #{opening_date}, bank_name = #{bank_name}
+        WHERE account_number = #{account_number}
+    </update>
+</mapper>

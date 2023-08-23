@@ -1,33 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>고객 정보 리스트</title>
+  <!-- 부트스트랩 링크 추가 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>고객 정보 리스트</h1>
-<table border>
-  <tr>
-    <td>이름</td>
-    <td>아이디</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr th:each="user:${list}">
-    <td>
-      <span th:text="${user.name}"></span>
-    </td>
-    <td>
-      <span th:text="${user.id}"></span>
-    </td>
-    <td>
-      <a th:href="@{'information/'+${user.c_id}}">정보보기</a>
-    </td>
-    <td>
-      <a th:href="@{'update/'+${user.c_id}}">수정</a>
-    </td>
-  </tr>
-</table>
-<a th:href="@{sign_up}">사용자등록</a>
+<div class="container mt-4">
+  <h1>내 계좌 리스트</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>은행</th>
+      <th>계좌번호</th>
+      <th>잔액</th>
+      <th>개설 일자</th>
+      <th>계좌 정보 및 거래 내역</th>
+      <th>수정 및 삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="account:${list}">
+      <td>
+        <span th:text="${account.bank_name}"></span>
+      </td>
+      <td>
+        <span th:text="${account.account_number}"></span>
+      </td>
+      <td>
+        <span th:text="${account.balance}"></span>
+      </td>
+      <td>
+        <span th:text="${#dates.format(account.opening_date, 'yyyy-MM-dd')}"></span>
+      </td>
+      <td>
+        <a class="btn btn-info btn-sm mr-1" th:href="@{'accountInfo/'+${account.account_number}}">계좌정보</a>
+        <a class="btn btn-success btn-sm" th:href="@{'transaction/'+${account.account_number}}">거래내역</a>
+      </td>
+      <td>
+        <a class="btn btn-primary btn-sm mr-1" th:href="@{'update/'+${account.account_number}}">수정</a>
+        <a class="btn btn-danger btn-sm" th:href="@{'delete/'+${account.account_number}}">삭제</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-primary" th:href="@{register}">사용자 등록</a>
+</div>
+
+<!-- 부트스트랩 스크립트 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
