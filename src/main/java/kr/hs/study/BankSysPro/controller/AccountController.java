@@ -45,14 +45,14 @@ public class AccountController {
     @PostMapping("/update")
     public String update(AccountDto dto) {
         service.update(dto);
-        return "redirect:/";
+        return "update_success";
     }
 
     // 삭제 페이지
     @GetMapping("/delete/{account_number}")
     public String delete(AccountDto dto) {
         service.delete(dto);
-        return "redirect:/";
+        return "delete_success";
     }
 
     // 계좌 정보
