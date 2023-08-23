@@ -36,9 +36,9 @@ public class AccountController {
     }
 
     // 수정 페이지
-    @GetMapping("/update/{account_number}")
-    public String update(Model model, AccountDto dto) {
-        List<AccountDto> list = service.list2(dto.getAccount_number());
+    @GetMapping("/update/{a_id}")
+    public String update(@PathVariable("a_id") int aId, Model model, AccountDto dto) {
+        List<AccountDto> list = service.list2(aId);
         model.addAttribute("list", list);
         return "update_form";
     }
@@ -49,22 +49,22 @@ public class AccountController {
     }
 
     // 삭제 페이지
-    @GetMapping("/delete/{account_number}")
+    @GetMapping("/delete/{a_id}")
     public String delete(AccountDto dto) {
         service.delete(dto);
         return "delete_success";
     }
 
     // 계좌 정보
-    @GetMapping("/accountInfo/{account_number}")
-    public String accountInfo(Model model, AccountDto dto) {
-        List<AccountDto> list = service.list2(dto.getAccount_number());
+    @GetMapping("/accountInfo/{a_id}")
+    public String accountInfo(@PathVariable("a_id") int aId, Model model, AccountDto dto) {
+        List<AccountDto> list = service.list2(aId);
         model.addAttribute("list", list);
         return "accountInfo";
     }
 
     // 거래 내역
-    @GetMapping("/transaction/{account_number}")
+    @GetMapping("/transaction/{a_id}")
     public String transaction() {
         return "transaction";
     }

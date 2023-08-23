@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDto> list2(String id) {
+    public List<AccountDto> list2(int id) {
         return mapper.list2(id);
     }
 

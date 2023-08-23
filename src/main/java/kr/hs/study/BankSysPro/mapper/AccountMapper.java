@@ -9,7 +9,7 @@ import java.util.List;
 public interface AccountMapper {
     public void insert(AccountDto dto);
     public List<AccountDto> list();
-    public List<AccountDto> list2(String id);
+    public List<AccountDto> list2(int id);
     public void delete(AccountDto dto);
     public void update(AccountDto dto);
 }
