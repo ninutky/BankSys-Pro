@@ -10,20 +10,23 @@
 <body>
 <div class="container mt-4">
   <h1>계좌 수정</h1>
-  <form method="post" action="/update" th:each="account:${list}">
-    <div class="form-group">
-      <label for="bankName">은행</label>
-      <input type="text" class="form-control" id="bankName" name="bank_name" th:value="${account.bank_name}">
+  <form method="post" th:action="@{/update}">
+    <div th:each="account : ${list}">
+        <input type="hidden" name="a_id" th:value="${account.a_id}">
+      <div class="form-group">
+        <label for="bankName">은행</label>
+        <input type="text" class="form-control" id="bankName" name="bank_name" th:value="${account.bank_name}">
+      </div>
+      <div class="form-group">
+        <label for="accountNumber">계좌번호</label>
+        <input type="text" class="form-control" id="accountNumber" name="account_number" th:value="${account.account_number}">
+      </div>
+      <div class="form-group">
+        <label for="balance">잔액</label>
+        <input type="number" class="form-control" id="balance" name="balance" th:value="${account.balance}">
+      </div>
+      </br>
     </div>
-    <div class="form-group">
-      <label for="accountNumber">계좌번호</label>
-      <input type="text" class="form-control" id="accountNumber" name="account_number" th:value="${account.account_number}">
-    </div>
-    <div class="form-group">
-      <label for="balance">잔액</label>
-      <input type="number" class="form-control" id="balance" name="balance" th:value="${account.balance}">
-    </div>
-    </br>
     <button type="submit" class="btn btn-primary">완료</button>
   </form>
 </div>
