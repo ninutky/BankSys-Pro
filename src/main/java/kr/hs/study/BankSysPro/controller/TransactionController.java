@@ -43,16 +43,8 @@ public class TransactionController {
     // 리스트
     @GetMapping("/transaction/{a_id}")
     public String transactionid(TransactionDto dto, Model model){
-        List<TransactionDto> list2 = service.list2(dto.getA_id());
-        model.addAttribute("list", list2);
-        return "transaction";
-    }
-
-    @GetMapping("/transaction")
-    public String transaction(Model model){
-//        List<TransactionDto> list2 = service.accountTransactionJoin();
-        List<TransactionDto> list2 = service.list();
-        model.addAttribute("list", list2);
+        List<TransactionDto> list = service.accountTransactionJoin(dto.getA_id());
+        model.addAttribute("list", list);
         return "transaction";
     }
 

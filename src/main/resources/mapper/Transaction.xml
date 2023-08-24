@@ -25,12 +25,18 @@
         SET account_number = #{account_number}, balance = #{balance}, transaction_date = #{transaction_date}, transaction_type = #{transaction_type}, transaction_amount = #{transaction_amount}, description = #{description}
         WHERE a_id = #{a_id}
     </update>
+<!--    계좌 번호 별 거래 내역 조회-->
     <select id="accountTransactionJoin" resultType="kr.hs.study.BankSysPro.dto.TransactionDto">
-        SELECT t.transaction_date, a.account_number, t.transaction_type, t.transaction_amount, t.balance, t.description
-        FROM transaction t
-        JOIN accounts a
-        ON t.a_id = a.a_id
-        WHERE t.a_id = #{a_id}
-        ORDER BY t.a_id
+        SELECT
+        t.transaction_date,
+        t.transaction_type,
+        t.transaction_amount,
+        t.description
+        FROM
+        ACCOUNTS a
+        JOIN
+        TRANSACTION t ON a.A_ID = t.A_ID AND a.account_number = t.account_number AND a.A_ID = #{a_id}
+        ORDER BY
+        t.transaction_date, a.account_number
     </select>
 </mapper>

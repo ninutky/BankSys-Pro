@@ -10,4 +10,5 @@ public interface TransactionService {
     public List<TransactionDto> list();
     public List<TransactionDto> list2(int id);
     public void update(TransactionDto dto);
+    public List<TransactionDto> accountTransactionJoin(int id);
 }

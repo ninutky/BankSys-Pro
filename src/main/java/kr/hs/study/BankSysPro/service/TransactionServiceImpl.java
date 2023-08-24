@@ -34,5 +34,10 @@ public class TransactionServiceImpl implements TransactionService {
         mapper.update(dto);
     }
 
+    @Override
+    public List<TransactionDto> accountTransactionJoin(int id) {
+        return mapper.accountTransactionJoin(id);
+    }
+
 
 }
