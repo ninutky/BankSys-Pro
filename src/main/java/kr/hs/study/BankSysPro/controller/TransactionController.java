@@ -19,13 +19,23 @@ public class TransactionController {
     private TransactionService service;
 
     // 등록 페이지
-    @GetMapping("/register_transaction/{a_id}")
-    public String register_transaction() {
+    @GetMapping("/register_transaction/{a_id}/{account_number}")
+    public String register_transaction(
+            @PathVariable("a_id") int aId,
+            @PathVariable("account_number") String accountNumber,
+            Model model) {
+        model.addAttribute("a_id", aId);
+        model.addAttribute("account_number", accountNumber);
         return "register_transaction";
     }
     // 등록 버튼 눌렀을 때
-    @PostMapping("/register_transaction")
-    public String register_transaction(TransactionDto dto) {
+    @PostMapping("/register_transaction/{a_id}/{account_number}")
+    public String register_transaction(
+            TransactionDto dto,
+            @PathVariable("a_id") int aId,
+            @PathVariable("account_number") String accountNumber) {
+        dto.setA_id(aId);
+        dto.setAccount_number(accountNumber);
         service.insert(dto);
         return "register_success";
     }
@@ -45,31 +55,4 @@ public class TransactionController {
         model.addAttribute("list", list2);
         return "transaction";
     }
-
-//    // 수정 페이지
-//    @GetMapping("/update/{a_id}")
-//    public String update(@PathVariable("a_id") int aId, Model model, AccountDto dto) {
-//        List<AccountDto> list = service.list2(aId);
-//        model.addAttribute("list", list);
-//        return "update_form";
-//    }
-//    @PostMapping("/update")
-//    public String update(AccountDto dto) {
-//        service.update(dto);
-//        return "update_success";
-//    }
-//
-//    // 삭제 페이지
-//    @GetMapping("/delete/{a_id}")
-//    public String delete(AccountDto dto) {
-//        service.delete(dto);
-//        return "delete_success";
-//    }
-//
-//    // 거래 내역
-//    @GetMapping("/transaction/{a_id}")
-//    public String transaction(Model model) {
-//        List<AccountDto> list = service.list();
-//        return "transaction";
-//    }
 }

@@ -37,7 +37,7 @@
       </td>
       <td>
         <a class="btn btn-success btn-sm" th:href="@{'transaction/'+${account.a_id}}">거래 내역</a>
-        <a class="btn btn-primary btn-sm" th:href="@{'register_transaction/'+${account.a_id}}">등록</a>
+        <a class="btn btn-primary btn-sm" th:href="@{'register_transaction/'+${account.a_id}+ '/' +${account.account_number}}">등록</a>
       </td>
       <td>
         <a class="btn btn-primary btn-sm mr-1" th:href="@{'update/'+${account.a_id}}">수정</a>
