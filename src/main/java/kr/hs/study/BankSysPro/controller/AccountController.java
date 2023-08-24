@@ -17,22 +17,22 @@ public class AccountController {
     private AccountService service;
 
     // 등록 페이지
-    @GetMapping("/register")
-    public String register() {
+    @GetMapping("/register_account")
+    public String register_account() {
         return "register_account";
     }
-    @PostMapping("/register")
-    public String register(AccountDto dto) {
+    @PostMapping("/register_account")
+    public String register_account(AccountDto dto) {
         service.insert(dto);
-        return "redirect:/list";
+        return "register_success";
     }
 
     // 리스트
-    @GetMapping("/list")
-    public String list(Model model){
+    @GetMapping("/list_account")
+    public String list_account(Model model){
         List<AccountDto> list = service.list();
         model.addAttribute("list", list);
-        return "list";
+        return "list_account";
     }
 
     // 수정 페이지
@@ -40,7 +40,7 @@ public class AccountController {
     public String update(@PathVariable("a_id") int aId, Model model, AccountDto dto) {
         List<AccountDto> list = service.list2(aId);
         model.addAttribute("list", list);
-        return "update_form";
+        return "account_update_form";
     }
     @PostMapping("/update")
     public String update(AccountDto dto) {
@@ -55,17 +55,4 @@ public class AccountController {
         return "delete_success";
     }
 
-    // 계좌 정보
-    @GetMapping("/accountInfo/{a_id}")
-    public String accountInfo(@PathVariable("a_id") int aId, Model model, AccountDto dto) {
-        List<AccountDto> list = service.list2(aId);
-        model.addAttribute("list", list);
-        return "accountInfo";
-    }
-
-    // 거래 내역
-    @GetMapping("/transaction/{a_id}")
-    public String transaction() {
-        return "transaction";
-    }
 }

@@ -5,8 +5,8 @@
 
 <mapper namespace="kr.hs.study.BankSysPro.mapper.AccountMapper">
     <insert id="insert" parameterType="kr.hs.study.BankSysPro.dto.AccountDto">
-        INSERT INTO accounts(a_id, account_number, balance, opening_date, bank_name)
-        VALUES(banksys_seq.NEXTVAL, #{account_number}, #{balance}, #{opening_date}, #{bank_name})
+        INSERT INTO accounts(a_id, account_number, balance, bank_name)
+        VALUES(banksys_seq.NEXTVAL, #{account_number}, #{balance}, #{bank_name})
     </insert>
     <select id="list" resultType="kr.hs.study.BankSysPro.dto.AccountDto">
         SELECT * FROM accounts
@@ -22,7 +22,7 @@
     </delete>
     <update id="update" parameterType="kr.hs.study.BankSysPro.dto.AccountDto">
         UPDATE accounts
-        SET account_number = #{account_number}, balance = #{balance}, opening_date = #{opening_date}, bank_name = #{bank_name}
+        SET account_number = #{account_number}, balance = #{balance}, bank_name = #{bank_name}
         WHERE a_id = #{a_id}
     </update>
 </mapper>

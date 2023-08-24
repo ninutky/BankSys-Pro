@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>거래 내역 등록</title>
+    <!-- 부트스트랩 링크 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>거래 내역 등록</h1>
+    <form method="post" th:action="list_account">
+        <div class="form-group">
+            <label for="transactionDate">거래 날짜</label>
+            <input type="date" class="form-control" id="transactionDate" name="transaction_date">
+        </div>
+        <div class="form-group">
+            <label for="transactionType">거래 유형</label>
+            <input type="text" class="form-control" id="transactionType" name="transaction_type" placeholder="예) 입금, 출금, 이체">
+        </div>
+        <div class="form-group">
+            <label for="transactionAmount">거래 금액</label>
+            <input type="number" class="form-control" id="transactionAmount" name="transaction_amount">
+        </div>
+        <div class="form-group">
+            <label for="balance">잔액</label>
+            <input type="number" class="form-control" id="balance" name="balance">
+        </div>
+        <div class="form-group">
+            <label for="description">설명</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="예) 셔츠 구매, 저녁 식사, 항공권 예약">
+        </div>
+        </br>
+        <button type="submit" class="btn btn-primary">완료</button>
+    </form>
+</div>
+
+<!-- 부트스트랩 스크립트 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
