@@ -30,18 +30,8 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void delete(TransactionDto dto) {
-        mapper.delete(dto);
-    }
-
-    @Override
     public void update(TransactionDto dto) {
         mapper.update(dto);
-    }
-
-    @Override
-    public void accountTransactionJoin(TransactionDto dto) {
-        mapper.accountTransactionJoin(dto);
     }
 
 
