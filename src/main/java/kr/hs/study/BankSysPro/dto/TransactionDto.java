@@ -13,6 +13,5 @@ public class TransactionDto {
     private String account_number;      // 계좌번호
     private String transaction_type;    // 거래 유형
     private int transaction_amount;     // 거래 금액
-    private int balance;                // 잔액
     private String description;         // 거래에 대한 설명
 }
