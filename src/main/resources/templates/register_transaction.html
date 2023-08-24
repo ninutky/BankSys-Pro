@@ -20,7 +20,10 @@
         </div>
         <div class="form-group">
             <label for="transactionType">거래 유형</label>
-            <input type="text" class="form-control" id="transactionType" name="transaction_type" placeholder="예) 입금, 출금, 이체">
+            <select class="form-control" id="transactionType" name="transaction_type">
+                <option value="입금">입금</option>
+                <option value="출금">출금</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="transactionAmount">거래 금액</label>
