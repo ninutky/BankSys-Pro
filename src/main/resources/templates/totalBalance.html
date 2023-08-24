@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Total Balance</title>
+  <!-- 부트스트랩 링크 추가 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="mt-5">총합계</h1>
+  <p class="lead" th:text="'Total Balance: ' + ${getTotalBalance}"></p>
+</div>
+</body>
+</html>

@@ -46,4 +46,9 @@ public class AccountServiceImpl implements AccountService {
     public double calculateAverageBalance() {
         return mapper.calculateAverageBalance();
     }
+
+    @Override
+    public double getTotalBalance() {
+        return mapper.getTotalBalance();
+    }
 }

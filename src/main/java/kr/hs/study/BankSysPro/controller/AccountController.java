@@ -74,4 +74,11 @@ public class AccountController {
         return "higher_balance_accounts"; // 결과를 보여줄 페이지로 이동
     }
 
+    @GetMapping("/totalBalance")
+    public String showTotalBalance(Model model) {
+        double getTotalBalance = service.getTotalBalance();
+        model.addAttribute("getTotalBalance", getTotalBalance);
+        return "totalBalance";
+    }
+
 }

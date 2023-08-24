@@ -5,8 +5,8 @@
 
 <mapper namespace="kr.hs.study.BankSysPro.mapper.TransactionMapper">
     <insert id="insert" parameterType="kr.hs.study.BankSysPro.dto.TransactionDto">
-        INSERT INTO transaction(a_id, account_number, balance, transaction_date, transaction_type, transaction_amount, description)
-        VALUES(#{a_id}, #{account_number}, #{balance}, #{transaction_date}, #{transaction_type}, #{transaction_amount}, #{description})
+        INSERT INTO transaction(a_id, account_number, transaction_date, transaction_type, transaction_amount, description)
+        VALUES(#{a_id}, #{account_number}, #{transaction_date}, #{transaction_type}, #{transaction_amount}, #{description})
     </insert>
     <select id="list" resultType="kr.hs.study.BankSysPro.dto.TransactionDto">
         SELECT * FROM transaction

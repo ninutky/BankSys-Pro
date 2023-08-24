@@ -13,4 +13,5 @@ public interface AccountService {
     public void update(AccountDto dto);
     public List<AccountDto> calculateHigherBalanceAccounts();
     public double calculateAverageBalance();
+    public double getTotalBalance();
 }
