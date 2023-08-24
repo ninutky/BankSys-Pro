@@ -10,7 +10,7 @@
     </insert>
     <select id="list" resultType="kr.hs.study.BankSysPro.dto.TransactionDto">
         SELECT * FROM transaction
-        ORDER BY a_id
+        ORDER BY transaction_date
     </select>
     <select id="list2" resultType="kr.hs.study.BankSysPro.dto.TransactionDto">
         SELECT * FROM transaction

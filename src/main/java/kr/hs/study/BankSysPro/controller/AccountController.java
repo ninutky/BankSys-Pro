@@ -1,6 +1,7 @@
 package kr.hs.study.BankSysPro.controller;
 
 import kr.hs.study.BankSysPro.dto.AccountDto;
+import kr.hs.study.BankSysPro.dto.TransactionDto;
 import kr.hs.study.BankSysPro.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,6 +54,24 @@ public class AccountController {
     public String delete(AccountDto dto) {
         service.delete(dto);
         return "delete_success";
+    }
+
+    // 계좌 리스트 페이지로 이동
+    @GetMapping("/accounts")
+    public String accountList(Model model) {
+        List<AccountDto> accountList = service.list();
+        model.addAttribute("list", accountList);
+        return "list_account";
+    }
+
+    @GetMapping("/calculateHigherBalanceAccounts")
+    public String calculateHigherBalanceAccounts(Model model) {
+        // MyBatis를 이용하여 Mapper를 통해 평균 잔액을 조회하는 코드
+        List<AccountDto> averageBalance = service.calculateHigherBalanceAccounts();
+        model.addAttribute("averageBalance", averageBalance);
+        double calculateAverageBalance = service.calculateAverageBalance();
+        model.addAttribute("calculateAverageBalance", calculateAverageBalance);
+        return "higher_balance_accounts"; // 결과를 보여줄 페이지로 이동
     }
 
 }

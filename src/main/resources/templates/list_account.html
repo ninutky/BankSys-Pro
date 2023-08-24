@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>고객 정보 리스트</title>
+  <title>내 계좌 리스트</title>
   <!-- 부트스트랩 링크 추가 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
 </head>
@@ -46,7 +46,12 @@
     </tr>
     </tbody>
   </table>
+</div>
+<div class="container d-flex justify-content-between mt-3">
   <a class="btn btn-primary" th:href="@{register_account}">계좌 등록</a>
+  <form method="get" th:action="@{/calculateHigherBalanceAccounts}">
+    <button type="submit" class="btn btn-primary">평균 계산</button>
+  </form>
 </div>
 
 <!-- 부트스트랩 스크립트 추가 -->

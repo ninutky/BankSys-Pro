@@ -55,4 +55,5 @@ public class TransactionController {
         model.addAttribute("list", list2);
         return "transaction";
     }
+
 }

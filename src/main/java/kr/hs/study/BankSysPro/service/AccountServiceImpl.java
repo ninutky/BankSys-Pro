@@ -36,4 +36,14 @@ public class AccountServiceImpl implements AccountService {
     public void update(AccountDto dto) {
         mapper.update(dto);
     }
+
+    @Override
+    public List<AccountDto> calculateHigherBalanceAccounts() {
+        return mapper.calculateHigherBalanceAccounts();
+    }
+
+    @Override
+    public double calculateAverageBalance() {
+        return mapper.calculateAverageBalance();
+    }
 }

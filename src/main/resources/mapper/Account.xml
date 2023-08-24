@@ -25,4 +25,12 @@
         SET account_number = #{account_number}, balance = #{balance}, bank_name = #{bank_name}
         WHERE a_id = #{a_id}
     </update>
+    <select id="calculateHigherBalanceAccounts" resultType="kr.hs.study.BankSysPro.dto.AccountDto">
+        SELECT bank_name, account_number, balance
+        FROM accounts
+        WHERE balance > (SELECT AVG(balance) FROM accounts)
+    </select>
+    <select id="calculateAverageBalance" resultType="double">
+        SELECT AVG(balance) FROM accounts
+    </select>
 </mapper>
